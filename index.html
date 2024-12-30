@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnlyFans BioLink</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            user-select: none; /* Prevent text selection */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            backdrop-filter: blur(0px);
+            background-color: rgba(0, 0, 0, 0.103);
+            padding: 20px;
+            text-align: center; /* Center align all text */
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            margin-bottom: 20px;
+        }
+
+        .name {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .bio {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .links a {
+            text-decoration: none;
+            font-size: 1.1em;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 40px;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+
+        .links a:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #ccc;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Disable right-click
+            document.addEventListener('contextmenu', event => event.preventDefault());
+
+            // Add click event listener to links
+            const restrictedCountries = ['India', 'Indonesia', 'Brazil', 'Egypt'];
+            const links = document.querySelectorAll('.links a');
+
+            links.forEach(link => {
+                link.addEventListener('click', event => {
+                    event.preventDefault(); // Prevent default behavior
+                    fetch('https://ipapi.co/json/')
+                        .then(response => response.json())
+                        .then(data => {
+                            if (restrictedCountries.includes(data.country_name)) {
+                                window.location.href = 'https://youtube.com';
+                            } else {
+                                window.location.href = event.target.href; // Navigate to the original link
+                            }
+                        })
+                        .catch(err => {
+                            console.error('Error fetching location:', err);
+                            window.location.href = event.target.href; // Default to original link on error
+                        });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="1.jpg" alt="Profile Picture" class="profile-pic">
+        <div class="name">Dating Site</div>
+        <div class="bio">Welcome to my Dating Site. Explore more through the links below!</div>
+        <div class="links">
+            <a href="https://xtwphrh.mysweet-contactstimes.com/g2t2cdv?t=NARUTO&cid=GUDANG_GARAM" target="_blank">💚 WhatsApp</a>
+            <a href="https://vnanxl.llovesgreat.com/?utm_source=da57dc555e50572d&&ban=inst&j1=1&s1=226805&s2=2083622&s3=NARUTO&click_id=LA_ICE" target="_blank">💑 Video Call</a>
+            <a href="https://xtwphrh.mysweet-contactstimes.com/g2t2cdv?t=NARUTO&cid=LA_MENTHOL" target="_blank">🐦 Unlock Premium Content</a>
+            <a href="https://vnanxl.llovesgreat.com/?utm_source=da57dc555e50572d&&ban=inst&j1=1&s1=226805&s2=2083622&s3=NARUTO&click_id=MLD_COLLA" target="_blank">🎥 Free Private Content</a>
+        </div>
+        <div class="footer">© Dating Site. All rights reserved.</div>
+    </div>
+</body>
+</html>
